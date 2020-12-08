@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<link rel="stylesheet" href="Assets/style.css">
+
+<link rel="stylesheet" href="/Assets/app.css">
 
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Application</title>
+    <title>Weather App</title>
 </head>
 
-<body>
+<body class="container">
 
-    <div class="wrapper">
-        <header class="main-head">Weather Dashboard</header>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="">Search1</a></li>
-                <li><a href="">Search1</a></li>
-                <li><a href="">Search2</a></li>
-                <li><a href="">Search3</a></li>
-                <li><a href="">Search4</a></li>
-                <li><a href="">Search5</a></li>
-            </ul>
-        </nav>
-        <article class="content">
-              <h1>Weather</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus quasi repellat quis quo ut culpa
-                praesentium, veritatis eos cum recusandae, earum sunt mollitia deleniti adipisci neque sint aliquid in.
-                Hic. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi magni earum, perferendis laboriosam
-                obcaecati provident delectus officia, iure, nostrum libero molestiae eius dicta atque? Amet eaque
-                officia illum ab nisi?</p>
+    <nav class="navbar navbar-dark bg-dark">Weather Now (Nav)</nav>
 
+    <main class="main" id="#currentWeather">
+
+        <h1 id="#city"></h1>
+        <lu id="#temp"></lu>
+        <lu id="#humidity"></lu>
+        <lu id="#wind"></lu>
+        <lu id="#uv"></lu>
+        <lu id="#temp"></lu>
+
+    </main>
+
+    <div id="side" class="sidebar">Search for City:<input clas="input" id="s-input-city">
+        <ul class="list-group"></ul>
+        <li class="list-group-item"><button type="button" class="btn btn-dark">Austin</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark">Chicago</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark">New York</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark">Orlando</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark">San Fransico</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark">Seattle</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark">Denver</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark">Atlanta</button></li>
 
     </div>
 
-   </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="Assets/script.js"></script>
+
+</body>
+
 
 </html>
