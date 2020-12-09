@@ -37,7 +37,7 @@ This project is using HTML, CSS, JavaScript, and JQuery to create a weather dash
 
 ## Webpages
 
-- [About Webpage - https://lucpizz.github.io/Weather-Dashboard/index.html](https://lucpizz.github.io/Weather-Dashboard/index.html)
+- [Webpage - https://lucpizz.github.io/Weather-Dashboard/index.html](https://lucpizz.github.io/Weather-Dashboard/index.html)
 
 ---
 
