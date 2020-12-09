@@ -1,43 +1,35 @@
-
 var APIKey = "9945d72978a05fa730d96ce9f5309224";
 
-$(".btnClick").click(function(event){
-     
+$(".btnClick").click(function (event) {
   event.preventDefault();
   var city = $(this).text();
   console.log(city);
 
   getCurrentTemp(city);
   getForecast(city);
-
 });
 
-$(".sClick").click(function(event){
-
+$(".sClick").click(function (event) {
   event.preventDefault();
   var city = $("#input-city").val();
   console.log(city);
 
   getCurrentTemp(city);
   getForecast(city);
-
 });
 
-
 function getCurrentTemp(city = "Hartford") {
+  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
 
-   var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
-  
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
     console.log(response);
-});
-};
+  });
+}
 
 function getForecast(city = "Hartford") {
-
   $.get(
     `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=0541b5451eff403a8510f759f1e9892d`,
     (res) => {
@@ -56,48 +48,42 @@ function getForecast(city = "Hartford") {
       }).then(function (response) {
         console.log(response);
 
-        const dayT = moment.unix(response.daily[0].dt).format('L');
+        const dayT = moment.unix(response.daily[0].dt).format("L");
         const dayTemp = response.daily[0].temp.day;
         const dayHumidity = response.daily[0].humidity;
         const dayWind = response.daily[0].wind_speed;
         const dayUVI = response.daily[0].uvi;
 
-       $("div1").html(`<h4>${city} (${dayT})</h4>`);
-       $("div1").append(`<lu>Temperature: ${dayTemp}<sup>o</sup>F</lu><lu>Humidity: ${dayHumidity}%</lu><lu>Wind: ${dayWind} MPH</lu><lu>UV Index: ${dayUVI}</div>`);
+        $("div1").html(`<h4>${city} (${dayT})</h4>`);
+        $("div1").append(
+          `<lu>Temperature: ${dayTemp}<sup>o</sup>F</lu><lu>Humidity: ${dayHumidity}%</lu><lu>Wind: ${dayWind} MPH</lu><lu>UV Index: ${dayUVI}`
+        );
 
-      $("div2").html(`<h5>5-Day Forecast</h5>`);
+        $("div2").html(`<h5>5-Day Forecast</h5>`);
 
-        for (i = 1; i <6; i++) {
+        for (i = 1; i < 6; i++) {
           const element = response.daily[i];
           console.log(element);
 
-          const timeT = moment.unix(element.dt).format('L');
+          const timeT = moment.unix(element.dt).format("L");
 
           const fTemp = element.temp.day;
 
           const humidity = element.humidity;
 
-         const uvi = element.uvi;
-         console.log(uvi);
-        
-        
-        $("div2").append(`<div class="col-2">${timeT}</div><div class="col-2">Temp: ${fTemp}<sup>o</sup>F</div><div class="col-2">Humidity: ${humidity}%</div><br>`);
+          const uvi = element.uvi;
+          console.log(uvi);
 
-         }
-      }
-    );
-});
-
-};
-
-
+          $("div2").append(
+            `<div class="col-2">${timeT}</div><div class="col-2">Temp: ${fTemp}<sup>o</sup>F</div><div class="col-2">Humidity: ${humidity}%</div><br>`
+          );
+        }
+      });
+    }
+  );
+}
 
 $(document).ready(function () {
-
   getCurrentTemp();
   getForecast();
-
 });
-
-
-  
