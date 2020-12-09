@@ -53,7 +53,7 @@ function getCurrentTemp(city = "Hartford") {
 
     const wind = response.wind.speed;
 
-    //const uvIndex = response;
+        //const uvIndex = response;
 
         $("div1").html(`<h3>${city} (${currentDay})</h3>`);
         $("div1").append(`<lu>Temperature: ${fTemp}<sup>o</sup>F</lu><lu>Humidity: ${humidity}%</lu><lu>Wind: ${wind} MPH</lu></div>`);
@@ -84,6 +84,7 @@ function getForecast(city = "Hartford") {
 
         //$("div1").append(`<div class=><h6>5-Day Forecast:</h6>`)
         $("div2").html(`<h3>5-Day Forecast</h3>`);
+
         for (i = 0; i < 5; i++) {
           const element = response.daily[i];
           console.log(element);
@@ -98,7 +99,7 @@ function getForecast(city = "Hartford") {
          console.log(uvi);
         
         
-        $("div2").append(`<tr><td>${timeT}</td><td>Temp: ${fTemp}<sup>o</sup>F</td><td>Humidity: ${humidity}%</td><td>UV Index: ${uvi}</td></tr>`);
+        $("div2").append(`<div class="col-2">${timeT}</div><div class="col-2">Temp: ${fTemp}<sup>o</sup>F</div><div class="col-2">Humidity: ${humidity}%</div><br>`);
 
         /*
         $("div3").html(`<lu>${timeT}</lu>`);
