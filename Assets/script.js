@@ -2,11 +2,8 @@
 var APIKey = "9945d72978a05fa730d96ce9f5309224";
 
 $(".btnClick").click(function(event){
-
      
   event.preventDefault();
-
-
   var city = $(this).text();
   console.log(city);
 
@@ -17,10 +14,7 @@ $(".btnClick").click(function(event){
 
 $(".sClick").click(function(event){
 
-     
   event.preventDefault();
-
-
   var city = $("#input-city").val();
   console.log(city);
 
@@ -30,35 +24,15 @@ $(".sClick").click(function(event){
 });
 
 
-
 function getCurrentTemp(city = "Hartford") {
 
    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
   
-  console.log(city);''
-
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
     console.log(response);
-
-    const currentDay = moment.unix(response.dt).format(`L`);
-
-
-
-    const fTemp = response.main.temp;
-
-    const humidity = response.main.humidity;
-
-    const wind = response.wind.speed;
-
-        //const uvIndex = response;
-
-        $("div1").html(`<h3>${city} (${currentDay})</h3>`);
-        $("div1").append(`<lu>Temperature: ${fTemp}<sup>o</sup>F</lu><lu>Humidity: ${humidity}%</lu><lu>Wind: ${wind} MPH</lu></div>`);
-
-
 });
 };
 
@@ -82,10 +56,18 @@ function getForecast(city = "Hartford") {
       }).then(function (response) {
         console.log(response);
 
-        //$("div1").append(`<div class=><h6>5-Day Forecast:</h6>`)
-        $("div2").html(`<h3>5-Day Forecast</h3>`);
+        const dayT = moment.unix(response.daily[0].dt).format('L');
+        const dayTemp = response.daily[0].temp.day;
+        const dayHumidity = response.daily[0].humidity;
+        const dayWind = response.daily[0].wind_speed;
+        const dayUVI = response.daily[0].uvi;
 
-        for (i = 0; i < 5; i++) {
+       $("div1").html(`<h4>${city} (${dayT})</h4>`);
+       $("div1").append(`<lu>Temperature: ${dayTemp}<sup>o</sup>F</lu><lu>Humidity: ${dayHumidity}%</lu><lu>Wind: ${dayWind} MPH</lu><lu>UV Index: ${dayUVI}</div>`);
+
+      $("div2").html(`<h5>5-Day Forecast</h5>`);
+
+        for (i = 1; i <6; i++) {
           const element = response.daily[i];
           console.log(element);
 
@@ -101,18 +83,7 @@ function getForecast(city = "Hartford") {
         
         $("div2").append(`<div class="col-2">${timeT}</div><div class="col-2">Temp: ${fTemp}<sup>o</sup>F</div><div class="col-2">Humidity: ${humidity}%</div><br>`);
 
-        /*
-        $("div3").html(`<lu>${timeT}</lu>`);
-        $("div4").html(`<lu>${fTemp}</lu>`);
-        $("div5").html(`<lu>${humidity}</lu>`);
-        $("div6").html(`<lu>${uvi}</lu>`);
-
-         
-          $("div2").append(
-            `<div class="card col"><h5>${timeT}</h5><lu>Temperature: ${fTemp}<sup>o</sup>F</lu><lu>Humidity: ${humidity}%</lu></div>`
-          );   
-        */
-        }
+         }
       }
     );
 });
