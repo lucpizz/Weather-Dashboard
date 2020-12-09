@@ -15,9 +15,11 @@
 
 <body class="container">
 
-    <nav class="navbar navbar-dark bg-dark">Weather Now (Nav)</nav>
+    <nav class="navbar navbar-dark bg-dark h1">Weather Now!</nav>
 
-    <main class="main" id="#currentWeather">
+    <main class="main" id="#Weather">
+
+    <div1 class="div1 card rounded" id="#currentWeather">
 
         <h1 id="#city"></h1>
         <lu id="#temp"></lu>
@@ -26,23 +28,39 @@
         <lu id="#uv"></lu>
         <lu id="#temp"></lu>
 
+    </div1>
+
+    <div2 class="div2 card rounded" id="fiveDayForecast">
+
+
+    </div2>
+
     </main>
 
-    <div id="side" class="sidebar">Search for City:<input clas="input" id="s-input-city">
+   
+
+    <div id="side" class="sidebar">Search for City:<input class="input" id="input-city"> <button type="button" class="btn btn-dark sClick" id="#btn">Search</button>
         <ul class="list-group"></ul>
-        <li class="list-group-item"><button type="button" class="btn btn-dark">Austin</button></li>
-        <li class="list-group-item"><button type="button" class="btn btn-dark">Chicago</button></li>
-        <li class="list-group-item"><button type="button" class="btn btn-dark">New York</button></li>
-        <li class="list-group-item"><button type="button" class="btn btn-dark">Orlando</button></li>
-        <li class="list-group-item"><button type="button" class="btn btn-dark">San Fransico</button></li>
-        <li class="list-group-item"><button type="button" class="btn btn-dark">Seattle</button></li>
-        <li class="list-group-item"><button type="button" class="btn btn-dark">Denver</button></li>
-        <li class="list-group-item"><button type="button" class="btn btn-dark">Atlanta</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark btnClick" id="#btn">Austin</button>
+        </li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark btnClick" id="#chicago">Chicago</button>
+        </li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark btnClick" id="#new york">New York</button>
+        </li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark btnClick" id="#orlando">Orlando</button>
+        </li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark btnClick" id="#San Fransico">San Francisco</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark btnClick" id="#seattle">Seattle</button>
+        </li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark btnClick" id="#denver">Denver</button>
+        </li>
+        <li class="list-group-item"><button type="button" class="btn btn-dark btnClick" id="#atlanta">Atlanta</button>
+        </li>
 
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="Assets/moment.js"></script>
     <script src="Assets/script.js"></script>

@@ -11,9 +11,8 @@
 }
 
 nav {
-    background-color: gray;
     grid-area: nav;
-    text-align: justify;
+    text-align: center;
     color: white;
 
 }
