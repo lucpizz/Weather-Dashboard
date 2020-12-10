@@ -15,11 +15,31 @@ $(".sClick").click(function (event) {
   event.preventDefault();
   var city = $("#input-city").val();
   console.log(city);
+  cityStorage.push(city);
 
-  storeCity(city);
+  storeCity();
+  renderStorageCity();
   getCurrentTemp(city);
   getForecast(city);
 });
+
+function storeCity() {
+  //cityStorage.push();
+  //console.log("cityStorage ::: ", cityStorage);
+  localStorage.setItem("city", JSON.stringify(cityStorage));
+}
+
+function renderStorageCity(city) {
+  localStorage.getItem("city", JSON.parse(cityStorage));
+
+  $.each(obj, function (key, value) {
+    $("sidebar").append(`<li>${value}</li>`);
+  });
+}
+
+//function init() {
+// renderStorageCity();
+//}
 
 function storeCity(city) {
   cityStorage.push({
