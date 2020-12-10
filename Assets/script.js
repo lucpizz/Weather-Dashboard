@@ -1,3 +1,5 @@
+var cityStorage = [];
+
 var APIKey = "9945d72978a05fa730d96ce9f5309224";
 
 $(".btnClick").click(function (event) {
@@ -14,9 +16,18 @@ $(".sClick").click(function (event) {
   var city = $("#input-city").val();
   console.log(city);
 
+  storeCity(city);
   getCurrentTemp(city);
   getForecast(city);
 });
+
+function storeCity(city) {
+  cityStorage.push({
+    city: "#input-city",
+    description: "city name",
+  });
+  localStorage.setItem("city", JSON.stringify(localStorage));
+}
 
 function getCurrentTemp(city = "Hartford") {
   var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
