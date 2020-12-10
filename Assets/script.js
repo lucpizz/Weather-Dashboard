@@ -69,9 +69,7 @@ function getForecast(city = "Hartford") {
 
       var queryHartfordFive = `https://api.openweathermap.org/data/2.5/onecall?lat=${results[0].geometry.lat}2&lon=${results[0].geometry.lng}&exclude=hourly,minutely&units=imperial&appid=9945d72978a05fa730d96ce9f5309224&`;
 
-      // Get API Key  for OpenCage
-      //0541b5451eff403a8510f759f1e9892d
-      /// This is the onecall API . IT delivers
+
 
       $.ajax({
         url: queryHartfordFive,
