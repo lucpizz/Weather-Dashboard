@@ -4,15 +4,7 @@
 
 var cityStorage = [];
 
-<<<<<<< HEAD
-/*
-  API key for openweather call
-*/
-
-var APIKey = "9945d72978a05fa730d96ce9f5309224";
-=======
 var APIKey = "";
->>>>>>> e044fec9f3aaab79bf5aff256416b404f6c364a5
 
 /*
   The .btnClick event is to take user input and dispaly the given city weather forecast
