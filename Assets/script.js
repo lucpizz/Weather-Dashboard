@@ -4,11 +4,15 @@
 
 var cityStorage = [];
 
+<<<<<<< HEAD
 /*
   API key for openweather call
 */
 
 var APIKey = "9945d72978a05fa730d96ce9f5309224";
+=======
+var APIKey = "";
+>>>>>>> e044fec9f3aaab79bf5aff256416b404f6c364a5
 
 /*
   The .btnClick event is to take user input and dispaly the given city weather forecast
@@ -98,12 +102,12 @@ function getCurrentTemp(city = "Hartford") {
 
 function getForecast(city = "Hartford") {
   $.get(
-    `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=0541b5451eff403a8510f759f1e9892d`,
+    `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=APIKey`,
     (res) => {
       console.log(res);
       let results = res.results;
 
-      var queryHartfordFive = `https://api.openweathermap.org/data/2.5/onecall?lat=${results[0].geometry.lat}2&lon=${results[0].geometry.lng}&exclude=hourly,minutely&units=imperial&appid=9945d72978a05fa730d96ce9f5309224&`;
+      var queryHartfordFive = `https://api.openweathermap.org/data/2.5/onecall?lat=${results[0].geometry.lat}2&lon=${results[0].geometry.lng}&exclude=hourly,minutely&units=imperial&appid=APIkey`;
 
       $.ajax({
         url: queryHartfordFive,
