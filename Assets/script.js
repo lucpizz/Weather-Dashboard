@@ -1,6 +1,18 @@
+/*
+  variable for local storage array
+*/
+
 var cityStorage = [];
 
+/*
+  API key for openweather call
+*/
+
 var APIKey = "9945d72978a05fa730d96ce9f5309224";
+
+/*
+  The .btnClick event is to take user input and dispaly the given city weather forecast
+*/
 
 $(".btnClick").click(function (event) {
   event.preventDefault();
@@ -11,6 +23,10 @@ $(".btnClick").click(function (event) {
   getForecast(city);
 });
 
+/*
+  The sClick event calls the weather forecast for the given city
+*/
+
 $(".sClick").click(function (event) {
   event.preventDefault();
   var city = $("#input-city").val();
@@ -18,10 +34,14 @@ $(".sClick").click(function (event) {
   cityStorage.push(city);
 
   storeCity();
-  renderStorageCity();
+  //renderStorageCity();
   getCurrentTemp(city);
   getForecast(city);
 });
+
+/*
+  The storeCity function saves the city search request in local storage
+*/
 
 function storeCity() {
   //cityStorage.push();
@@ -29,7 +49,12 @@ function storeCity() {
   localStorage.setItem("city", JSON.stringify(cityStorage));
 }
 
-function renderStorageCity(city) {
+/*
+  The renderStorageCity function takes the saved city search from local storage
+  and creates a dynamic list on the webpage
+*/
+
+function renderStorageCity() {
   localStorage.getItem("city", JSON.parse(cityStorage));
 
   $.each(obj, function (key, value) {
@@ -37,9 +62,10 @@ function renderStorageCity(city) {
   });
 }
 
-//function init() {
-// renderStorageCity();
-//}
+/*
+
+  The storeCity function stores the searched city in local storage
+
 
 function storeCity(city) {
   cityStorage.push({
@@ -48,6 +74,11 @@ function storeCity(city) {
   });
   localStorage.setItem("city", JSON.stringify(localStorage));
 }
+*/
+
+/*
+    The getCurrentTemp call gets the city data and console logs the response 
+*/
 
 function getCurrentTemp(city = "Hartford") {
   var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
@@ -60,6 +91,11 @@ function getCurrentTemp(city = "Hartford") {
   });
 }
 
+/*
+  This function (getForecast()) uses both the open weather and opencagedata APIs to get city lat and long
+  to display the current and five-day forecasts.
+*/
+
 function getForecast(city = "Hartford") {
   $.get(
     `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=0541b5451eff403a8510f759f1e9892d`,
@@ -68,8 +104,6 @@ function getForecast(city = "Hartford") {
       let results = res.results;
 
       var queryHartfordFive = `https://api.openweathermap.org/data/2.5/onecall?lat=${results[0].geometry.lat}2&lon=${results[0].geometry.lng}&exclude=hourly,minutely&units=imperial&appid=9945d72978a05fa730d96ce9f5309224&`;
-
-
 
       $.ajax({
         url: queryHartfordFive,
@@ -111,6 +145,10 @@ function getForecast(city = "Hartford") {
     }
   );
 }
+
+/*
+    Document ready function to initiate the getCurrentTemp and getForecast functions
+*/
 
 $(document).ready(function () {
   getCurrentTemp();

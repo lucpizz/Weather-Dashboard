@@ -1,3 +1,6 @@
+/*
+  creates the grid of the body to store the forecasts
+*/
 .container {
   display: grid;
   height: 60vh;
@@ -11,24 +14,31 @@
   padding-bottom: 0.5rem;
 }
 
+/* navigation bar */
+
 nav {
   grid-area: nav;
   align-items: center;
+  text-decoration-color: whitesmoke;
 }
+
+
+/* main located in body of html page
+   sets the grip */
 
 main {
   background-color: lightgray;
   grid-area: main;
 }
 
+/* sets the sidebar*/
+
 .sidebar {
   background-color: lightgrey;
   grid-area: sidebar;
 }
 
-h1 {
-  color: white;
-}
+/* sets the repsonsiveness of the webpage */
 
 @media only screen and (max-width: 550px) {
   .container {
